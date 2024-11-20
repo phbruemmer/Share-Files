@@ -1,5 +1,6 @@
 import os.path
 import socket
+import time
 
 
 class Client:
@@ -20,8 +21,17 @@ class Client:
 
     def listen(self):
         print(f"[listen] waiting for data from {self.SERVER_IP}...")
-        data = self.socket.recv(self.BUFFER)
-        print(f"Data: {data.decode()} received.")
+        filename = self.socket.recv(self.BUFFER)
+        print(f"[listen] received data:\n{filename.decode()}")
+        if not os.path.exists("C:\\tmp\\"):
+            os.mkdir("C:\\tmp\\")
+        with open(f"C:\\tmp\\{filename.decode()}", 'wb') as file:
+            data = self.socket.recv(self.BUFFER)
+            while not data == b'$$$':
+                # print(data.decode())
+                file.write(data)
+                data = self.socket.recv(self.BUFFER)
+                time.sleep(.1)
 
 
 if __name__ == "__main__":

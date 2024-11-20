@@ -1,5 +1,6 @@
 import os.path
 import socket
+import time
 
 
 class Server:
@@ -35,10 +36,19 @@ class Server:
 
     def handle_upload(self):
         file_path = input("[input] Please enter the file path: ")
-        if not os.path.exists(file_path):
-            print("[handle_upload] No such path - terminating connection.")
+        if not os.path.isfile(file_path):
+            print("[handle_upload] No such file path found - terminating connection.")
+            print("[handle_upload] stop imagining things you don't have!")
             self.terminate_connection()
-        self.client_sock.send(b'Test Message')
+        self.client_sock.send(file_path.split('\\')[-1].encode())
+        with open(file_path, 'rb') as file:
+            file_chunk = file.read(self.BUFFER)
+            while file_chunk:
+                self.client_sock.send(file_chunk)
+                # print(f"[handle_upload] sending file data...\n{file_chunk.decode()}")
+                file_chunk = file.read(self.BUFFER)
+                time.sleep(.1)
+        self.client_sock.send(b'$$$')
 
 
 if __name__ == "__main__":
