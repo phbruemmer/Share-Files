@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cacf9d77-c9e3-4671-8801-1cca4a5e5100" name="Changes" comment="- initial commit">
+    <list default="true" id="cacf9d77-c9e3-4671-8801-1cca4a5e5100" name="Changes" comment="- Files can now be copied from one computer over to another computer in the same network.&#10;- No big problems found so far.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/file_receiver.py" beforeDir="false" afterPath="$PROJECT_DIR$/file_receiver.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
@@ -129,11 +129,20 @@
       <option name="project" value="LOCAL" />
       <updated>1732117576717</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="- Files can now be copied from one computer over to another computer in the same network.&#10;- No big problems found so far.">
+      <option name="closed" value="true" />
+      <created>1732119665345</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1732119665345</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="- initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="- initial commit" />
+    <MESSAGE value="- Files can now be copied from one computer over to another computer in the same network.&#10;- No big problems found so far." />
+    <option name="LAST_COMMIT_MESSAGE" value="- Files can now be copied from one computer over to another computer in the same network.&#10;- No big problems found so far." />
   </component>
 </project>

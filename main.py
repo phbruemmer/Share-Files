@@ -47,7 +47,7 @@ class Server:
                 self.client_sock.send(file_chunk)
                 # print(f"[handle_upload] sending file data...\n{file_chunk.decode()}")
                 file_chunk = file.read(self.BUFFER)
-                time.sleep(.1)
+                time.sleep(.2)
         self.client_sock.send(b'$$$')
 
 
