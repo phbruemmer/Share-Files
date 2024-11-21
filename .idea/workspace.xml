@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cacf9d77-c9e3-4671-8801-1cca4a5e5100" name="Changes" comment="- Works with all types of data (as far as I know)&#10;- Will add UDP - Broadcast server-finder soon, so we don't have to manually change the IP address in the code.">
+    <list default="true" id="cacf9d77-c9e3-4671-8801-1cca4a5e5100" name="Changes" comment="- Added logging and better exception handling to the client (file_receiver)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/file_receiver.py" beforeDir="false" afterPath="$PROJECT_DIR$/file_receiver.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,13 +144,22 @@
       <option name="project" value="LOCAL" />
       <updated>1732128493882</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="- Added logging and better exception handling to the client (file_receiver)">
+      <option name="closed" value="true" />
+      <created>1732198271528</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1732198271528</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="- initial commit" />
     <MESSAGE value="- Files can now be copied from one computer over to another computer in the same network.&#10;- No big problems found so far." />
     <MESSAGE value="- Works with all types of data (as far as I know)&#10;- Will add UDP - Broadcast server-finder soon, so we don't have to manually change the IP address in the code." />
-    <option name="LAST_COMMIT_MESSAGE" value="- Works with all types of data (as far as I know)&#10;- Will add UDP - Broadcast server-finder soon, so we don't have to manually change the IP address in the code." />
+    <MESSAGE value="- Added logging and better exception handling to the client (file_receiver)" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Added logging and better exception handling to the client (file_receiver)" />
   </component>
 </project>

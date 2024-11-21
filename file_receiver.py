@@ -26,7 +26,7 @@ class Client:
         self.PATH = path or self.DEFAULT_PATH
 
     def connect(self):
-        logging.info("[connect] Connecting to %s on port %d...", self.SERVER_IP, self.PORT)
+        logging.info("[connect] Connecting to %s on port %d...", (self.SERVER_IP, self.PORT))
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
             try:
                 sock.connect((self.SERVER_IP, self.PORT))
