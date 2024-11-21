@@ -28,41 +28,44 @@ class Server:
                 logging.info("[start] starting...")
                 logging.info("[start] listening for connections...")
                 sock.listen(1)
-                self.accept(sock)
-                file_path = self.get_file_path(sock)
-                self.handle_upload(sock, file_path)
+                client_sock = self.accept(sock)
+                file_path = self.get_file_path(client_sock)
+                self.handle_upload(client_sock, file_path)
             except socket.error as e:
                 logging.error("[start] Socket error: %s", e)
                 raise
 
-    def terminate_connection(self, sock):
-        if sock:
-            sock.close()
+    def terminate_connection(self, client_sock):
+        if client_sock:
+            client_sock.close()
         logging.critical("[terminate] Connection terminated")
 
     def accept(self, sock):
         client_sock, client_addr = sock.accept()
         logging.info("[accept] %s successfully connected to the server.", client_addr)
+        return client_sock
 
-    def handle_upload(self, sock, path):
+    def handle_upload(self, client_sock, path):
         try:
             with open(path, 'rb') as file:
                 file_chunk = file.read(self.BUFFER)
                 while file_chunk:
-                    sock.send(file_chunk)
+                    client_sock.send(file_chunk)
                     file_chunk = file.read(self.BUFFER)
-            sock.send(b'$$$')
+            client_sock.send(b'$')
+            logging.info("[handle_upload] finished file upload.")
         except IOError as e:
             logging.error("[handle_upload] Failed to read file: %s", e)
+            raise
 
-    def get_file_path(self, sock):
+    def get_file_path(self, client_sock):
         time.sleep(.1)
         file_path = input("[input] Please enter the file path: ")
         if not os.path.isfile(file_path):
             logging.error("[get_file_path] No such file path found - terminating connection.")
-            self.terminate_connection(sock)
+            self.terminate_connection(client_sock)
         else:
-            sock.send(os.path.basename(file_path).encode())
+            client_sock.send(os.path.basename(file_path).encode())
             return file_path
 
 
