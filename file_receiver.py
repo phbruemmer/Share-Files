@@ -1,41 +1,79 @@
 import os.path
 import socket
-import time
+import logging
+
+
+logging.basicConfig(
+    level=logging.INFO,  # Log level (DEBUG, INFO, WARNING, ERROR, CRITICAL)
+    format="%(asctime)s - %(levelname)s - %(message)s",  # Log format
+    datefmt="%Y-%m-%d %H:%M:%S",  # Date/time format
+)
 
 
 class Client:
-    def __init__(self):
-        self.SERVER_IP = '192.168.115.52'
-        self.PORT = 6545
-        self.BUFFER = 1024
-        self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    DEFAULT_SERVER_IP = '192.168.115.200'
+    DEFAULT_PORT = 6545
+    DEFAULT_BUFFER = 8192
+
+    DEFAULT_PATH = f"C:\\tmp\\"
+
+    END_OF_FILE_MARKER = b'$$$'
+
+    def __init__(self, server_ip=None, port=None, buffer=None, path=None):
+        self.SERVER_IP = server_ip or self.DEFAULT_SERVER_IP
+        self.PORT = port or self.DEFAULT_PORT
+        self.BUFFER = buffer or self.DEFAULT_BUFFER
+        self.PATH = path or self.DEFAULT_PATH
 
     def connect(self):
-        print(f"[connect] trying to connect to {self.SERVER_IP}...")
-        try:
-            self.socket.connect((self.SERVER_IP, self.PORT))
-            print(f"[connect] successfully connected to {self.SERVER_IP} on port {self.PORT}.")
-        except Exception as err:
-            print(err)
-            exit(-1)
+        logging.info("[connect] Connecting to %s on port %d...", self.SERVER_IP, self.PORT)
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
+            try:
+                sock.connect((self.SERVER_IP, self.PORT))
+                logging.info("[connect] Successfully connected.")
+                filename = self.receive_data(sock)
+                self.check_directory()
+                self.receive_file(sock, filename)
+            except socket.error as e:
+                logging.error("[connect] Socket error: %s", e)
+                raise
+            except Exception as e:
+                logging.error("[connect] Unexpected error: %s", e)
+                raise
 
-    def listen(self):
-        print(f"[listen] waiting for data from {self.SERVER_IP}...")
-        filename = self.socket.recv(self.BUFFER)
-        print(f"[listen] received data:\n{filename.decode()}")
-        if not os.path.exists("C:\\tmp\\"):
-            os.mkdir("C:\\tmp\\")
-        with open(f"C:\\tmp\\{filename.decode()}", 'wb') as file:
-            data = self.socket.recv(self.BUFFER)
-            while not data == b'$$$':
-                # print(data.decode())
-                file.write(data)
-                data = self.socket.recv(self.BUFFER)
-                time.sleep(.1)
+    def receive_data(self, sock):
+        logging.info("[listen] waiting for data from %s ...", self.SERVER_IP)
+        filename = sock.recv(self.BUFFER).decode().strip()
+        sanitized_filename = os.path.basename(filename)
+        logging.info("[listen] received data: %s", filename)
+        return sanitized_filename
+
+    def receive_file(self, sock, filename):
+        full_path = os.path.join(self.PATH, filename)
+        logging.info("[receive_file] Saving file to %s ...", full_path)
+
+        try:
+            with open(full_path, 'wb') as file:
+                while True:
+                    data = sock.recv(self.BUFFER)
+                    if data == self.END_OF_FILE_MARKER:
+                        logging.info("[receive_file] End of file marker received.")
+                        break
+                    file.write(data)
+            logging.info("[receive_file] File saved successfully.")
+        except IOError as e:
+            logging.error("[receive_file] Failed to write file: %s", e)
+            raise
+
+    def check_directory(self):
+        if not os.path.exists(self.PATH):
+            logging.info("[check_directory] Directory does not exist. Creating: %s", self.PATH)
+            os.makedirs(self.PATH, exist_ok=True)
+        else:
+            logging.info("[check_directory] Directory already exists: %s", self.PATH)
 
 
 if __name__ == "__main__":
     client = Client()
     client.connect()
-    client.listen()
 

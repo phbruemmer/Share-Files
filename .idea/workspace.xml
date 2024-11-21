@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cacf9d77-c9e3-4671-8801-1cca4a5e5100" name="Changes" comment="- Files can now be copied from one computer over to another computer in the same network.&#10;- No big problems found so far.">
+    <list default="true" id="cacf9d77-c9e3-4671-8801-1cca4a5e5100" name="Changes" comment="- Works with all types of data (as far as I know)&#10;- Will add UDP - Broadcast server-finder soon, so we don't have to manually change the IP address in the code.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/file_receiver.py" beforeDir="false" afterPath="$PROJECT_DIR$/file_receiver.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,35 +23,35 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "phbruemmer"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;phbruemmer&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/phbruemmer/Share-Files.git",
-    "accountId": "2b92bd18-1aee-4ecf-9d00-0d92cec588c9"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/phbruemmer/Share-Files.git&quot;,
+    &quot;accountId&quot;: &quot;2b92bd18-1aee-4ecf-9d00-0d92cec588c9&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 0
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="2p7SIY25IdfvtVLbLqRjoAl8QFo" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.file_receiver.executor": "Run",
-    "Python.main.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.file_receiver.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Python.file_receiver">
     <configuration name="file_receiver" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="share_files" />
@@ -137,12 +136,21 @@
       <option name="project" value="LOCAL" />
       <updated>1732119665345</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="- Works with all types of data (as far as I know)&#10;- Will add UDP - Broadcast server-finder soon, so we don't have to manually change the IP address in the code.">
+      <option name="closed" value="true" />
+      <created>1732128493882</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1732128493882</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="- initial commit" />
     <MESSAGE value="- Files can now be copied from one computer over to another computer in the same network.&#10;- No big problems found so far." />
-    <option name="LAST_COMMIT_MESSAGE" value="- Files can now be copied from one computer over to another computer in the same network.&#10;- No big problems found so far." />
+    <MESSAGE value="- Works with all types of data (as far as I know)&#10;- Will add UDP - Broadcast server-finder soon, so we don't have to manually change the IP address in the code." />
+    <option name="LAST_COMMIT_MESSAGE" value="- Works with all types of data (as far as I know)&#10;- Will add UDP - Broadcast server-finder soon, so we don't have to manually change the IP address in the code." />
   </component>
 </project>
