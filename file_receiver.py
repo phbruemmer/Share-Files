@@ -17,8 +17,6 @@ class Client:
 
     DEFAULT_PATH = f"C:\\tmp\\"
 
-    END_OF_FILE_MARKER = b'$$$'
-
     def __init__(self, server_ip=None, port=None, buffer=None, path=None):
         self.SERVER_IP = server_ip or self.DEFAULT_SERVER_IP
         self.PORT = port or self.DEFAULT_PORT
@@ -69,10 +67,9 @@ class Client:
             with open(full_path, 'wb') as file:
                 while True:
                     data = sock.recv(self.BUFFER)
-                    if data.find(self.END_OF_FILE_MARKER):
-                        logging.info("[receive_file] End of file marker received.")
-                        break
                     file.write(data)
+                    if len(data) < self.BUFFER:
+                        break
             logging.info("[receive_file] File saved successfully.")
         except IOError as e:
             logging.error("[receive_file] Failed to write file: %s", e)

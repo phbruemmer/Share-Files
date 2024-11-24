@@ -52,7 +52,6 @@ class Server:
                 while file_chunk:
                     client_sock.send(file_chunk)
                     file_chunk = file.read(self.BUFFER)
-            client_sock.send(b'$')
             logging.info("[handle_upload] finished file upload.")
         except IOError as e:
             logging.error("[handle_upload] Failed to read file: %s", e)
