@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cacf9d77-c9e3-4671-8801-1cca4a5e5100" name="Changes" comment="- Modified server and added logging&#10;- working on resolving a problem between server and client connection">
+    <list default="true" id="cacf9d77-c9e3-4671-8801-1cca4a5e5100" name="Changes" comment="- most problems resolved.&#10;- Edge cases not fully covered but ignored for now.&#10;- Will work on UDP-Broadcast-Auto-Connector thing.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/file_receiver.py" beforeDir="false" afterPath="$PROJECT_DIR$/file_receiver.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +45,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Python.Test.executor&quot;: &quot;Run&quot;,
     &quot;Python.file_receiver.executor&quot;: &quot;Run&quot;,
     &quot;Python.main.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
@@ -54,6 +53,28 @@
   }
 }</component>
   <component name="RunManager" selected="Python.file_receiver">
+    <configuration name="Test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="share_files" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="file_receiver" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="share_files" />
       <option name="ENV_FILES" value="" />
@@ -100,8 +121,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.main" />
         <item itemvalue="Python.file_receiver" />
+        <item itemvalue="Python.main" />
+        <item itemvalue="Python.Test" />
       </list>
     </recent_temporary>
   </component>
@@ -161,7 +183,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732200969386</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="- most problems resolved.&#10;- Edge cases not fully covered but ignored for now.&#10;- Will work on UDP-Broadcast-Auto-Connector thing.">
+      <option name="closed" value="true" />
+      <created>1732204103218</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1732204103218</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -170,6 +200,7 @@
     <MESSAGE value="- Works with all types of data (as far as I know)&#10;- Will add UDP - Broadcast server-finder soon, so we don't have to manually change the IP address in the code." />
     <MESSAGE value="- Added logging and better exception handling to the client (file_receiver)" />
     <MESSAGE value="- Modified server and added logging&#10;- working on resolving a problem between server and client connection" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Modified server and added logging&#10;- working on resolving a problem between server and client connection" />
+    <MESSAGE value="- most problems resolved.&#10;- Edge cases not fully covered but ignored for now.&#10;- Will work on UDP-Broadcast-Auto-Connector thing." />
+    <option name="LAST_COMMIT_MESSAGE" value="- most problems resolved.&#10;- Edge cases not fully covered but ignored for now.&#10;- Will work on UDP-Broadcast-Auto-Connector thing." />
   </component>
 </project>
